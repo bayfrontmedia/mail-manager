@@ -26,7 +26,7 @@ interface AdapterInterface
     public function __construct(array $config);
 
     /**
-     * Get underlying instance used by adapter.
+     * Get underlying instance used by the adapter.
      *
      * @return mixed
      */

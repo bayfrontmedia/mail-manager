@@ -40,6 +40,8 @@ There are a variety of adapters available, each with their own required configur
 
 In addition, you may also create and use your own adapters to be used with Mail Manager.
 
+All adapters have a `getInstance()` method, which can be used to get the underlying instance used by the adapter.
+
 **PHPMailer**
 
 The PHPMailer adapter allows you to use [PHPMailer](https://github.com/PHPMailer/PHPMailer) for sending messages.
