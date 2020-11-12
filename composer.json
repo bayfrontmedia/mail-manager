@@ -3,7 +3,6 @@
   "description": "Framework agnostic library to queue and send emails from multiple services using a consistent API.",
   "homepage": "https://github.com/bayfrontmedia/mail-manager",
   "license" : "MIT",
-  "version": "1.0.0",
   "type": "library",
   "keywords": [
     "php",
