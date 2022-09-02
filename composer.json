@@ -18,7 +18,7 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/bayfrontmedia/project_name/issues"
+    "issues": "https://github.com/bayfrontmedia/mail-manager/issues"
   },
   "config": {
     "optimize-autoloader": true,
