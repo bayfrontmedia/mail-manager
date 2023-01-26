@@ -1,12 +1,5 @@
 <?php
 
-/**
- * @package mail-manager
- * @link https://github.com/bayfrontmedia/mail-manager
- * @author John Robinson <john@bayfrontmedia.com>
- * @copyright 2020 Bayfront Media
- */
-
 namespace Bayfront\MailManager;
 
 use Bayfront\MailManager\Exceptions\AdapterException;
@@ -31,7 +24,7 @@ interface AdapterInterface
      * @return mixed
      */
 
-    public function getInstance();
+    public function getInstance(): mixed;
 
     /**
      * Send message.

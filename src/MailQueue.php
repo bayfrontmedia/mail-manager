@@ -1,12 +1,5 @@
 <?php
 
-/**
- * @package mail-manager
- * @link https://github.com/bayfrontmedia/mail-manager
- * @author John Robinson <john@bayfrontmedia.com>
- * @copyright 2020 Bayfront Media
- */
-
 namespace Bayfront\MailManager;
 
 use Bayfront\MailManager\Exceptions\MessageException;
@@ -18,9 +11,9 @@ use PDOException;
 class MailQueue extends Mail
 {
 
-    protected $pdo;
+    protected PDO $pdo;
 
-    protected $config;
+    protected array $config;
 
     /**
      * MailQueue constructor.
@@ -72,7 +65,7 @@ class MailQueue extends Mail
     /**
      * Queue message.
      *
-     * @param $date_due
+     * @param DateTimeInterface $date_due
      * @param int $priority (Messages will be sent in order by due date sorted by priority in descending order)
      *
      * @return void
@@ -246,7 +239,7 @@ class MailQueue extends Mail
 
                 $results['sent']++;
 
-            } catch (MessageException $e) { // If unable to send message
+            } catch (MessageException) { // If unable to send message
 
                 $this->discard();
 

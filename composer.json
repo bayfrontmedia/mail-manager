@@ -25,11 +25,12 @@
     "preferred-install": "dist"
   },
   "require": {
-    "php": ">=7.1.0",
-    "bayfrontmedia/php-array-helpers": "^1.0.1",
-    "bayfrontmedia/php-validator": "^1.0.1",
-    "phpmailer/phpmailer": "6.1",
-    "soundasleep/html2text": "^1.1"
+    "php": "^8.0",
+    "ext-pdo": "*",
+    "bayfrontmedia/php-array-helpers": "^2.0",
+    "bayfrontmedia/php-validator": "^2.0",
+    "phpmailer/phpmailer": "^6.7",
+    "soundasleep/html2text": "^2.1"
   },
   "autoload": {
     "psr-4": {

@@ -1,12 +1,5 @@
 <?php
 
-/**
- * @package mail-manager
- * @link https://github.com/bayfrontmedia/mail-manager
- * @author John Robinson <john@bayfrontmedia.com>
- * @copyright 2020 Bayfront Media
- */
-
 namespace Bayfront\MailManager;
 
 use Bayfront\ArrayHelpers\Arr;
@@ -15,7 +8,7 @@ use Bayfront\MailManager\Exceptions\MessageException;
 class Mail
 {
 
-    protected $adapter;
+    protected AdapterInterface $adapter;
 
     public function __construct(AdapterInterface $adapter)
     {
@@ -44,7 +37,7 @@ class Mail
 
     }
 
-    protected $message = [];
+    protected array $message = [];
 
     /**
      * Create a new message.
@@ -81,21 +74,21 @@ class Mail
      * @return self
      */
 
-    public function addAddress(string $address, string $name = NULL)
+    public function addAddress(string $address, string $name = NULL): self
     {
 
         if (NULL === $name) {
 
-            array_push($this->message['to'], [
+            $this->message['to'][] = [
                 'address' => $address
-            ]);
+            ];
 
         } else {
 
-            array_push($this->message['to'], [
+            $this->message['to'][] = [
                 'address' => $address,
                 'name' => $name
-            ]);
+            ];
 
         }
 

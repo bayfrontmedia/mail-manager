@@ -1,12 +1,5 @@
 <?php
 
-/**
- * @package mail-manager
- * @link https://github.com/bayfrontmedia/mail-manager
- * @author John Robinson <john@bayfrontmedia.com>
- * @copyright 2020 Bayfront Media
- */
-
 namespace Bayfront\MailManager\Adapters;
 
 use Bayfront\ArrayHelpers\Arr;
@@ -24,9 +17,9 @@ use Soundasleep\Html2Text;
 class PHPMailer implements AdapterInterface
 {
 
-    protected $config;
+    protected array $config;
 
-    protected $adapter;
+    protected Adapter $adapter;
 
     /**
      * PHPMailer constructor.
@@ -105,7 +98,7 @@ class PHPMailer implements AdapterInterface
 
         }
 
-        //Get the list of ESMTP services the server offers
+        //Get the list of SMTP services the server offers
 
         $e = $smtp->getServerExtList();
 
@@ -333,7 +326,7 @@ class PHPMailer implements AdapterInterface
 
             if (true === Arr::get($message, 'is_html', true)) { // Defaults to true
 
-                $this->adapter->isHTML(true);
+                $this->adapter->isHTML();
 
                 $this->adapter->AltBody = Html2Text::convert($message['body']);
 
