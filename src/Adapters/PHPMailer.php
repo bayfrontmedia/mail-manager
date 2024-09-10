@@ -18,17 +18,14 @@ class PHPMailer implements AdapterInterface
 {
 
     protected array $config;
-
     protected Adapter $adapter;
 
     /**
      * PHPMailer constructor.
      *
      * @param array $config
-     *
      * @throws AdapterException
      */
-
     public function __construct(array $config)
     {
 
@@ -43,7 +40,6 @@ class PHPMailer implements AdapterInterface
         }
 
         $this->config = $config;
-
         $this->adapter = new Adapter(true);
 
     }
@@ -53,7 +49,6 @@ class PHPMailer implements AdapterInterface
      *
      * @return Adapter
      */
-
     public function getInstance(): Adapter
     {
         return $this->adapter;
@@ -65,10 +60,8 @@ class PHPMailer implements AdapterInterface
      * See: https://github.com/PHPMailer/PHPMailer/blob/master/examples/smtp_check.phps
      *
      * @return bool
-     *
      * @throws AdapterException
      */
-
     public function testConnection(): bool
     {
 
@@ -157,12 +150,9 @@ class PHPMailer implements AdapterInterface
      * Send message.
      *
      * @param array $message
-     *
      * @return void
-     *
      * @throws MessageException
      */
-
     public function send(array $message): void
     {
 

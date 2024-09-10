@@ -12,10 +12,8 @@ interface AdapterInterface
      * Adapter constructor.
      *
      * @param array $config
-     *
      * @throws AdapterException
      */
-
     public function __construct(array $config);
 
     /**
@@ -23,19 +21,15 @@ interface AdapterInterface
      *
      * @return mixed
      */
-
     public function getInstance(): mixed;
 
     /**
      * Send message.
      *
      * @param array $message
-     *
      * @return void
-     *
      * @throws MessageException
      */
-
     public function send(array $message): void;
 
 }

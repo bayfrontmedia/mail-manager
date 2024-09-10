@@ -12,7 +12,6 @@ class MailQueue extends Mail
 {
 
     protected PDO $pdo;
-
     protected array $config;
 
     /**
@@ -21,10 +20,8 @@ class MailQueue extends Mail
      * @param AdapterInterface $adapter
      * @param PDO $pdo
      * @param array $config
-     *
      * @throws QueueException
      */
-
     public function __construct(AdapterInterface $adapter, PDO $pdo, array $config = [])
     {
 
@@ -67,19 +64,14 @@ class MailQueue extends Mail
      *
      * @param DateTimeInterface $date_due
      * @param int $priority (Messages will be sent in order by due date sorted by priority in descending order)
-     *
      * @return void
-     *
      * @throws QueueException
      */
-
     public function addQueue(DateTimeInterface $date_due, int $priority = 5): void
     {
 
         if ($this->_isMessageInvalid($this->message)) {
-
             throw new QueueException('Unable to queue message: missing required keys');
-
         }
 
         try {
@@ -95,9 +87,7 @@ class MailQueue extends Mail
             ]);
 
         } catch (PDOException $e) {
-
             throw new QueueException($e->getMessage(), 0, $e);
-
         }
 
         $this->discard();
@@ -108,12 +98,9 @@ class MailQueue extends Mail
      * Remove a given ID from the queue.
      *
      * @param int $id (Unique id from the database table)
-     *
      * @return bool
-     *
      * @throws QueueException
      */
-
     public function removeQueue(int $id): bool
     {
 
@@ -132,9 +119,7 @@ class MailQueue extends Mail
             }
 
         } catch (PDOException $e) {
-
             throw new QueueException($e->getMessage(), 0, $e);
-
         }
 
         return false; // No rows affected
@@ -145,12 +130,9 @@ class MailQueue extends Mail
      * Get all messages in queue that are due, up to a given limit.
      *
      * @param int $limit (0 to get all)
-     *
      * @return array
-     *
      * @throws QueueException
      */
-
     public function getQueue(int $limit = 0): array
     {
 
@@ -174,7 +156,6 @@ class MailQueue extends Mail
 
             $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-
             foreach ($results as $k => $v) {
 
                 $results[$k]['message'] = json_decode($v['message'], true);
@@ -184,9 +165,7 @@ class MailQueue extends Mail
             return $results;
 
         } catch (PDOException $e) {
-
             throw new QueueException($e->getMessage(), 0, $e);
-
         }
 
     }
@@ -195,12 +174,9 @@ class MailQueue extends Mail
      * Send messages in queue that are due.
      *
      * @param int $limit (0 to send all)
-     *
      * @return array
-     *
      * @throws QueueException
      */
-
     public function sendQueue(int $limit = 0): array
     {
 
@@ -220,9 +196,7 @@ class MailQueue extends Mail
             if ($message['attempts'] >= $this->config['max_attempts']) {
 
                 $this->removeQueue($message['id']);
-
                 $results['removed']++;
-
                 break;
 
             }
@@ -263,9 +237,7 @@ class MailQueue extends Mail
                     $results['failed_ids'][] = $message['id'];
 
                 } catch (PDOException $e) {
-
                     throw new QueueException($e->getMessage(), 0, $e);
-
                 }
 
             }

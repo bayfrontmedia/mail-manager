@@ -28,8 +28,7 @@
     "php": "^8.0",
     "ext-pdo": "*",
     "bayfrontmedia/php-array-helpers": "^2.0",
-    "bayfrontmedia/php-validator": "^2.0",
-    "phpmailer/phpmailer": "^6.7",
+    "phpmailer/phpmailer": "^6.9",
     "soundasleep/html2text": "^2.1"
   },
   "autoload": {
