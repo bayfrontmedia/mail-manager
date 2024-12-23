@@ -65,7 +65,7 @@ class Mail
      * @param string|null $name (If NULL, a name will not be defined)
      * @return self
      */
-    public function addAddress(string $address, string $name = NULL): self
+    public function addAddress(string $address, ?string $name = NULL): self
     {
 
         if (NULL === $name) {
@@ -94,7 +94,7 @@ class Mail
      * @param string|null $name
      * @return self
      */
-    public function addCC(string $address, string $name = NULL): self
+    public function addCC(string $address, ?string $name = NULL): self
     {
 
         if (NULL === $name) {
@@ -123,7 +123,7 @@ class Mail
      * @param string|null $name
      * @return self
      */
-    public function addBCC(string $address, string $name = NULL): self
+    public function addBCC(string $address, ?string $name = NULL): self
     {
 
         if (NULL === $name) {
@@ -152,7 +152,7 @@ class Mail
      * @param string|null $name (New name to assign to file. If NULL, the existing name will be used.)
      * @return self
      */
-    public function addAttachment(string $file, string $name = NULL): self
+    public function addAttachment(string $file, ?string $name = NULL): self
     {
 
         if (NULL === $name) {
